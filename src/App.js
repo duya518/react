@@ -48,7 +48,7 @@ function App() {
           backgroundColor: "#f8f9fa",
           padding: "20px",
           borderRadius: "8px",
-          marginBottom: "20px",
+          marginBottom: "24px",
         }}
       >
         <h1 style={{ color: "#333" }}>高级React页面</h1>
