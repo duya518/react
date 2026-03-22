@@ -16,7 +16,6 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // 模拟API调用
     setTimeout(() => {
       setCount(data.length);
     }, 1000);
