@@ -1,0 +1,87 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.tabs button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.sort-options {
+  margin-bottom: 20px;
+}
+
+.sort-options label {
+  margin-right: 10px;
+}
+
+.comments-list {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+  color: #333;
+}
+
+.time {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.comment-content {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.comment-footer {
+  color: #666;
+  font-size: 0.9em;
+}
