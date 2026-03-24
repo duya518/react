@@ -1,51 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
+// 导入你刚才新建的自定义 Hook 和组件
+import { useComments } from "./useComments";
+import CommentItem from "./CommentItem";
 
 function App() {
-  // 模拟评论数据
-  const [comments, setComments] = useState([
-    {
-      id: 1,
-      author: "用户1",
-      content: "火钳刘明",
-      time: "2026-3-23 8:00",
-      likes: 45,
-    },
-    {
-      id: 2,
-      author: "用户2",
-      content: "1111",
-      time: "2026-3-23 11:06",
-      likes: 33,
-    },
-    {
-      id: 3,
-      author: "用户3",
-      content: "有点意思",
-      time: "2026-3-23 12:05",
-      likes: 70,
-    },
-    {
-      id: 4,
-      author: "用户4",
-      content: "加油up",
-      time: "2026-3-23 13:24",
-      likes: 99,
-    },
-  ]);
+  // 1. 使用自定义 Hook 获取数据和删除逻辑
+  const { comments, deleteComment, loading } = useComments();
 
-  // 当前选中的tab
+  // 2. 这里的 UI 状态（Tab 和排序方式）保留在 App 组件中，因为它们控制整体视图
   const [activeTab, setActiveTab] = useState("all");
-
-  // 排序方式
   const [sortBy, setSortBy] = useState("time");
 
-  // 删除评论
-  const deleteComment = (id) => {
-    setComments(comments.filter((comment) => comment.id !== id));
-  };
-
-  // 排序评论
+  // 3. 处理排序：根据时间或热度进行排序
+  // 注意：使用 [...comments] 创建副本进行排序，不影响原始状态
   const sortedComments = [...comments].sort((a, b) => {
     if (sortBy === "time") {
       return new Date(b.time) - new Date(a.time);
@@ -55,10 +23,10 @@ function App() {
     return 0;
   });
 
-  // 过滤评论（根据tab）
+  // 4. 处理过滤：根据 Tab 筛选评论
   const filteredComments = sortedComments.filter((comment) => {
     if (activeTab === "all") return true;
-    if (activeTab === "hot") return comment.likes >= 5;
+    if (activeTab === "hot") return comment.likes >= 5; // 沿用你原本的逻辑
     return true;
   });
 
@@ -66,7 +34,7 @@ function App() {
     <div className="App">
       <h1>视频评论</h1>
 
-      {/* 导航tab */}
+      {/* 导航 Tab 层 */}
       <div className="tabs">
         <button
           className={activeTab === "all" ? "active" : ""}
@@ -82,7 +50,7 @@ function App() {
         </button>
       </div>
 
-      {/* 排序选项 */}
+      {/* 排序选项层 */}
       <div className="sort-options">
         <label>排序方式：</label>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
@@ -91,26 +59,23 @@ function App() {
         </select>
       </div>
 
-      {/* 评论列表 */}
+      {/* 评论列表渲染层 */}
       <div className="comments-list">
-        {filteredComments.map((comment) => (
-          <div key={comment.id} className="comment">
-            <div className="comment-header">
-              <span className="author">{comment.author}</span>
-              <span className="time">{comment.time}</span>
-              <button
-                className="delete-btn"
-                onClick={() => deleteComment(comment.id)}
-              >
-                删除
-              </button>
-            </div>
-            <div className="comment-content">{comment.content}</div>
-            <div className="comment-footer">
-              <span>点赞：{comment.likes}</span>
-            </div>
+        {loading ? (
+          <div style={{ textAlign: "center", padding: "20px" }}>
+            正在加载评论...
           </div>
-        ))}
+        ) : filteredComments.length > 0 ? (
+          filteredComments.map((comment) => (
+            <CommentItem
+              key={comment.id}
+              comment={comment}
+              onDelete={deleteComment}
+            />
+          ))
+        ) : (
+          <div style={{ textAlign: "center", padding: "20px" }}>暂无评论</div>
+        )}
       </div>
     </div>
   );
