@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# 🎬 视频网站评论功能实现 (React 版)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本项目是一个基于 **React** 框架开发的交互式评论组件。它模拟了主流视频网站的评论区逻辑，涵盖了从数据渲染、分类过滤到动态排序的完整开发流程。
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 核心功能
 
-### `npm start`
+* **动态内容展示**：实时渲染评论正文、发布用户、时间戳及点赞总数。
+* **多维数据排序**：
+    * **最近时间**：基于时间戳将最新评论置顶。
+    * **最高点赞数**：根据热度（点赞数）实时重排列表。
+* **分类筛选（Tab）**：
+    * **全部评论**：展示所有用户留言。
+    * **热门评论**：一键过滤出高赞（点赞数 ≥ 5）的优质内容。
+* **评论删除**：支持用户交互，点击删除按钮即可从当前视图中移除指定评论。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ 技术栈
 
-### `npm test`
+* **框架核心**：React (Hooks)
+* **状态管理**：`useState` (用于管理评论列表、排序方式及当前选中的 Tab)
+* **逻辑处理**：JavaScript (ES6 数组方法：`map`, `filter`, `sort`)
+* **页面布局**：CSS3 (Flexbox 响应式布局)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 快速开始
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. 环境准备
+确保您的电脑已安装 Node.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. 安装与运行
+在项目根目录打开终端，依次输入以下命令：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# 安装项目依赖 (如果是新创建的项目)
+npm install
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 启动开发服务器
+npm start
