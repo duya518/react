@@ -1,15 +1,38 @@
-# 🚀 React Router 极简实战项目
+# 🚀 React Comment Manager (MyStudio Console)
 
-这是一个为 React 初学者准备的单页应用（SPA）入门项目。项目通过极简的文件结构，展示了 **React Router v6** 的核心用法，并实现了响应式的卡片布局。
+[![React](https://img.shields.io/badge/React-18.x-61dafb.svg)](https://reactjs.org/)
+[![React Router](https://img.shields.io/badge/React--Router-v6.x-red.svg)](https://reactrouter.com/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+这是一个基于 React 18 和 React Router v6 构建的**视频评论管理系统**。该项目集成并展示了 React 开发中的核心知识点，包括状态管理、副作用处理、动态排序以及响应式 UI 设计。
 
 ---
 
-## 📂 项目文件结构
+## ✨ 核心功能
 
-为了方便初学者理解，本项目将所有页面和路由逻辑整合在了 `App.js` 中，并实现了 CSS 样式的外联抽离：
+* **⚡ 动态路由导航**：使用 `react-router-dom` 实现多页面无刷新切换（首页、评论管理、关于）。
+* **📂 评论增删改查**：
+    * **发布**：实时添加新评论并自动生成时间戳。
+    * **删除**：支持根据唯一 ID 精准移除评论。
+* **📊 多维度排序**：支持“🔥 最热（按点赞数）”和“🕒 最新（按发布时间）”的双向切换排序逻辑。
+* **⌛ 异步数据流模拟**：利用 `useEffect` 模拟真实的 API 接口请求加载状态（Loading）。
+* **🎨 响应式布局**：纯 CSS 外联样式实现，包含悬停动画、选项卡切换高亮及移动端适配。
+
+---
+
+## 🛠️ 技术栈
+
+* **前端框架**：React 18
+* **路由管理**：React Router v6
+* **状态管理**：React Hooks (`useState`, `useEffect`)
+* **样式处理**：CSS3 (Flexbox & Grid)
+
+---
+
+## 📂 项目结构
 
 ```text
 src/
-├── index.js          # 项目总入口，负责将 App 渲染到页面上
-├── App.js            # 核心路由逻辑、导航栏以及所有页面组件
-└── App.css           # 纯外联 CSS 样式文件
+├── index.js          # 项目入口，执行 ReactDOM 挂载
+├── App.js            # 核心逻辑：包含路由分发、业务逻辑组件 (CommentManager)
+└── App.css           # 样式表：包含布局、评论卡片、按钮及导航样式
