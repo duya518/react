@@ -1,38 +1,29 @@
-# React 美团外卖点餐系统 (Redux Toolkit 实战)
+# React Simple Budget Tracker | 简易 React 记账本 💰
 
-本项目是一个基于 **React** 和 **Redux Toolkit** 开发的仿美团外卖点餐移动端页面。主要展示了如何通过 Redux 管理复杂的全局状态，并实现异步数据抓取与组件联动。
+这是一个基于 **React** 开发的轻量级个人记账应用。它可以帮助用户实时记录收支情况，自动计算余额，并支持数据本地持久化，非常适合作为 React 基础项目参考或日常简单记账使用。
 
-## 🌟 项目亮点
+---
 
-* **状态管理方案**: 采用最新的 `Redux Toolkit (RTK)`，通过 `createSlice` 和 `createAsyncThunk` 简化了 Redux 的开发流程。
-* **组件化开发**: 严格遵循组件拆分原则，将页面划分为导航 (`NavBar`)、菜单 (`Menu`)、商品列表 (`FoodsCategory`) 和购物车 (`Cart`)。
-* **异步数据流**: 在 `App.js` 中使用 `useEffect` 钩子配合 `useDispatch` 触发异步 Action，实现页面初始化时的数据自动加载。
-* **样式方案**: 使用 `Sass (SCSS)` 实现模块化样式编写，利用 Flex 布局和 `calc` 函数精准控制移动端滚动区域。
+## ✨ 功能特性
+
+* **实时收支统计**：自动计算并展示当前总余额、总收入和总支出。
+* **账单历史记录**：清晰展示每一笔账单的名称和金额，支持颜色区分（绿色为收入，红色为支出）。
+* **动态操作**：支持快速添加新账单及删除历史记录。
+* **本地存储 (LocalStorage)**：即使关闭页面或刷新浏览器，账单数据也不会丢失。
+* **响应式设计**：界面简洁，兼容移动端和桌面端浏览。
 
 ## 🛠️ 技术栈
 
-* **前端框架**: React 18
-* **状态管理**: React-Redux & Redux Toolkit
-* **样式处理**: Sass / SCSS
-* **环境构建**: Create React App (react-scripts)
+* **前端框架**: React (Hooks)
+* **状态管理**: `useState`, `useEffect`
+* **数据持久化**: 浏览器 `LocalStorage` API
+* **样式方案**: 原生 CSS3 (Flexbox)
 
-## 📁 核心文件说明
+## 🚀 快速启动
 
-### 1. 入口配置 (`src/index.js`)
-通过 `react-redux` 的 `Provider` 将配置好的 `store` 注入到整个应用中，确保所有后代组件都能访问全局状态。
+要在本地运行此项目，请确保你已经安装了 [Node.js](https://nodejs.org/)。
 
-### 2. 主逻辑实现 (`src/App.js`)
-* **数据初始化**: 使用 `useDispatch` 调用 `fetchFoodsList()` 获取外卖商品数据。
-* **状态订阅**: 使用 `useSelector` 实时监听 `foodsList`（商品列表）和 `activeIndex`（当前分类索引）的变化。
-* **条件渲染**: 根据 `activeIndex` 匹配对应的分类标题和食品列表，实现右侧内容的动态更新。
-
-### 3. 页面布局 (`src/App.scss`)
-* **滚动控制**: `.content-wrap` 设为 `overflow-y: auto`，确保内容超出高度时可平滑滑动。
-* **布局细节**: 通过 `.goods-list` 的 `margin-bottom` 为底部浮动购物车留出视觉缓冲区。
-
-## 🚀 快速开始
-
-### 1. 安装依赖
-在项目根目录下运行，安装 React 和 Redux 相关依赖包：
+### 1. 克隆仓库
 ```bash
-npm install
+git clone [https://github.com/你的用户名/react-budget-tracker.git](https://github.com/你的用户名/react-budget-tracker.git)
+cd react-budget-tracker
