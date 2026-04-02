@@ -1,29 +1,30 @@
-# React Simple Budget Tracker | 简易 React 记账本 💰
+# React Article Publisher | 带封面的文章发布系统 📝
 
-这是一个基于 **React** 开发的轻量级个人记账应用。它可以帮助用户实时记录收支情况，自动计算余额，并支持数据本地持久化，非常适合作为 React 基础项目参考或日常简单记账使用。
+这是一个使用 **React** 构建的高性能前端项目，实现了文章的动态发布、图片封面上传预览以及响应式文章列表展示。该项目重点展示了如何处理文件上传预览及 React 状态驱动的 UI 布局。
 
 ---
 
-## ✨ 功能特性
+## 🌟 核心功能
 
-* **实时收支统计**：自动计算并展示当前总余额、总收入和总支出。
-* **账单历史记录**：清晰展示每一笔账单的名称和金额，支持颜色区分（绿色为收入，红色为支出）。
-* **动态操作**：支持快速添加新账单及删除历史记录。
-* **本地存储 (LocalStorage)**：即使关闭页面或刷新浏览器，账单数据也不会丢失。
-* **响应式设计**：界面简洁，兼容移动端和桌面端浏览。
+* **实时封面预览**：使用 `URL.createObjectURL` 技术，支持用户上传图片后立即查看封面效果，无需等待服务器返回。
+* **文章动态发布**：支持标题、正文及封面的完整输入流程。
+* **响应式卡片布局**：采用 CSS Grid 布局，文章列表会自动根据屏幕宽度进行排列（自适应移动端与桌面端）。
+* **正文智能截断**：文章列表页自动对超长正文进行摘要处理，保持界面整洁。
+* **交互动画**：文章卡片包含平滑的悬停位移效果。
 
 ## 🛠️ 技术栈
 
-* **前端框架**: React (Hooks)
-* **状态管理**: `useState`, `useEffect`
-* **数据持久化**: 浏览器 `LocalStorage` API
-* **样式方案**: 原生 CSS3 (Flexbox)
+* **核心框架**: React.js (Hooks)
+* **布局方案**: CSS Grid & Flexbox
+* **资源处理**: 原生 File API & URL Object API
 
-## 🚀 快速启动
+## 🚀 快速开始
 
-要在本地运行此项目，请确保你已经安装了 [Node.js](https://nodejs.org/)。
+### 1. 环境准备
+确保你的本地环境已安装 [Node.js](https://nodejs.org/)。
 
-### 1. 克隆仓库
+### 2. 初始化项目
+如果你还没有创建 React 项目，可以运行：
 ```bash
-git clone [https://github.com/你的用户名/react-budget-tracker.git](https://github.com/你的用户名/react-budget-tracker.git)
-cd react-budget-tracker
+npx create-react-app my-article-app
+cd my-article-app
